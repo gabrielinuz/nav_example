@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+/*
+* @Prometeus Technology, a subsidiary of Pegasus Tech Supply
+* @copyright Copyright (C) 2005-2011 Leonardo Tadei. All rights reserved.
+* @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see gpl-3.0.txt
+* Calculadora is free software. This version may have been modified pursuant
+* to the GNU General Public License, and as distributed it includes or
+* is derivative of works licensed under the GNU General Public License or
+* other free or open source software licenses.
+*/
+-->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+    <title>Calculadora</title>
+    <style>
+    	#calculadora {
+    		border-color: black;
+    		border-style: solid;
+    		border-width: 1px;
+    		width: 256px;
+    		height: 360px;
+    		margin: auto;
+    		padding: 4px;
+    		background-color: white;
+    	}
+    	
+    	#display {
+    		width: 248px;
+    		font-size: 20px;
+    		font-weight: bold;
+    		margin-bottom: 8px;
+    		padding: 2px;
+    		text-align: right;
+    	}
+    	
+    	.numero {
+    		margin: 4px;
+			font-size: 18px;
+			width: 52px;
+			height: 52px;
+    	}
+    	.operador {
+    		margin: 4px;
+			font-size: 22px;
+			font-weight: bold;
+			width: 52px;
+			height: 52px;
+    	}
+    	.borrar {
+    		font-size: 18px;
+			width: 104px;
+			height: 36px;
+			margin-top: 10px;;
+    	}
+    </style>
+    
+<script type="text/javascript">
+
+	var acum = 0.0;
+	var oper = '';
+	
+	function press(el) {
+		document.getElementById('display').value = document.getElementById('display').value + el.value; 
+	}
+	
+	function operacion() {
+		 eval('resultado = ' + document.getElementById('display').value);
+		 document.getElementById('display').value = resultado;
+	}
+
+</script>
+  <style></style></head>
+  <body>
+
+	<div id="calculadora">
+		<form name="calc" id="calc" onsubmit="false;">
+			<input type="text" name="display" id="display">
+			<br>
+			<input type="button" name="7" id="7" value="7" class="numero" onclick="press(this);">
+			<input type="button" name="8" id="8" value="8" class="numero" onclick="press(this);">
+			<input type="button" name="9" id="9" value="9" class="numero" onclick="press(this);">
+			<input type="button" name="di" id="di" value="/" class="operador" onclick="press(this);">
+			<br>
+			<input type="button" name="4" id="4" value="4" class="numero" onclick="press(this);">
+			<input type="button" name="5" id="5" value="5" class="numero" onclick="press(this);">
+			<input type="button" name="6" id="6" value="6" class="numero" onclick="press(this);">
+			<input type="button" name="mu" id="mu" value="*" class="operador" onclick="press(this);">
+			<br>
+			<input type="button" name="1" id="1" value="1" class="numero" onclick="press(this);">
+			<input type="button" name="2" id="2" value="2" class="numero" onclick="press(this);">
+			<input type="button" name="3" id="3" value="3" class="numero" onclick="press(this);">
+			<input type="button" name="me" id="me" value="-" class="operador" onclick="press(this);">
+			<br>
+			<input type="button" name="0" id="0" value="0" class="numero" onclick="press(this);">
+			<input type="button" name="." id="." value="." class="numero" onclick="press(this);">
+			<input type="button" name="=" id="=" value="=" class="operador" onclick="operacion();">
+			<input type="button" name="ma" id="ma" value="+" class="operador" onclick="press(this);">
+			<br>
+			<div align="center">
+				<input type="button" name="bo" id="bo" value="borrar" class="borrar" onclick="document.getElementById(&#39;display&#39;).value = &#39;&#39;;">
+			</div>
+		</form>
+	</div>
+
+  
+  </body></html>
